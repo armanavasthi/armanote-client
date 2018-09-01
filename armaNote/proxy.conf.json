@@ -1,0 +1,10 @@
+{
+    "/webservice" :{
+        "target" : "http://localhost:6060/webservice",
+        "secure" : false,
+        "pathRewrite": {
+            "^/webservice": ""
+          },
+          "changeOrigin": true
+    }
+}

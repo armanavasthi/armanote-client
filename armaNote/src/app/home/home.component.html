@@ -1,0 +1,55 @@
+<div class="container">
+    <form>
+        <div>
+            <div class="col-md-1 urlLabelDiv"><label for="title-label">Input URL</label></div>
+            <div class="col-md-11 urlDiv">
+			  <input class="form-control" [(ngModel)]="inputUrl" name="inputUrl" 
+							  (keyup.enter)="checkFrameUrl()" type="text" 
+							  placeholder="Input the URL of page you want to read"/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="display: none;">Submit</button>
+	</form>
+	
+	<div *ngIf="showIFrame">
+		<iframe height="300px" width="100%"
+			[src]="sanitizer.bypassSecurityTrustResourceUrl(iframeUrl)" name="iframe_a" 
+			frameborder="0" id="iframeView" 
+			allowfullscreen>
+		</iframe>
+	</div>
+	
+    <div class="col-md-6 col-xs-8 row-fluid pull-right">
+        <div class="pull-right">
+			<a href="{{ iframeUrl }}" class="btn btn-info" role="button" 
+				target="iframe_a" #urlButton style="display: none;">
+				Add URL
+			</a>
+        </div>
+	</div>
+	
+
+    <div class="col-md-6 col-xs-8 row-fluid noLeftPadding">
+        <form class="form">
+                <div class="form-ele">
+                    <div class="col-md-2"><label for="title-label">Title</label></div>
+                    <div class="col-md-10"><input class="form-control" id="title-input" type="text" /></div>
+                </div>
+                <div class="form-ele">
+                    <div class="col-md-2"><label for="content-label">Content</label></div>
+                    <div class="col-md-10"><textarea class="form-control" name="" id="content-text" rows="1"></textarea></div>
+                </div>
+                <div class="form-ele">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-info" id="saveNote">Save Note</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+<div class="form-ele">
+    <div class="col-md-2">
+        <button type="button" class="btn btn-info" id="random" (click)="getAllUsers()">get All Users</button>
+    </div>
+</div>

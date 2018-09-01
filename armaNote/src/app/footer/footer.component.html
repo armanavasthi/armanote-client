@@ -1,0 +1,11 @@
+<div>
+    <footer id="footer">
+    <!-- this is footer -->
+    © 2018 arman avasthi
+        <span sec:authorize="isAuthenticated()">
+            | Logged user: <span sec:authentication="name"></span> |
+            Roles: <span sec:authentication="principal.authorities"></span> |
+            <a (click)="logMeOut()" href="#">Sign Out</a>
+        </span>
+    </footer>
+</div>
