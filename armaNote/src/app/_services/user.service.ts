@@ -10,7 +10,6 @@ export class UserService {
 	baseUrl = '';
 	constructor(private http: HttpClient, private platformLocation: PlatformLocation) {
 		this.baseUrl = (platformLocation as any).location.origin;
-		console.log(this.baseUrl);
 	}
 
 	getUsers() {

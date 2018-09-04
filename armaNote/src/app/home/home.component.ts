@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 	showIFrame = false;
 
 	getAllUsers() {
-		console.log(this.userService);
 		this.userService.getUsers().subscribe(
 			response => {
 				console.log(response);
@@ -26,7 +25,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		console.log(this.userService);
 		this.userService.getUsers().subscribe(
 			response => {
 				console.log(response);

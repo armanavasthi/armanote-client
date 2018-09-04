@@ -20,6 +20,7 @@ export class AuthService {
 			response => response
 		).subscribe(
 			response => {
+				console.log("The token is:   ", response);
 				this.setSession(response);
 			}
 		);
@@ -30,7 +31,6 @@ export class AuthService {
 	}
 
 	private setSession(authResult) {
-		console.log('in set session', authResult);
 		localStorage.setItem('id_token', authResult.token);
 		// localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()) );
 	}
