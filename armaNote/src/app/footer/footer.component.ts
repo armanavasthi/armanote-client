@@ -18,6 +18,9 @@ export class FooterComponent implements OnInit {
 		// hit the server first to add jwt in black list
 		// then :
 		localStorage.setItem('id_token', '');
+		localStorage.setItem('fullname', '');
+		localStorage.setItem('imgUrl', '');
+		localStorage.setItem('email', '');
 		// redirect to home page if not there.
 
 		// For Cookie based authentication:
@@ -32,7 +35,4 @@ export class FooterComponent implements OnInit {
 			}
 		);
 	}
-
-
-
 }

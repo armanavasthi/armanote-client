@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { CookieService } from 'ngx-cookie-service';
+import { CustomErrorHandler } from './custom-error-handler';
 
 
 @NgModule({
@@ -31,9 +32,9 @@ import { CookieService } from 'ngx-cookie-service';
 		HttpModule,
 		HttpClientModule,
 		RouterModule.forRoot([
-		{ path: '', component: HomeComponent},
-		{ path: 'registration', component: RegistrationComponent},
-		{ path: 'login', component: LoginComponent}
+			{ path: '', component: HomeComponent},
+			{ path: 'registration', component: RegistrationComponent},
+			{ path: 'login', component: LoginComponent}
 		])
 	],
 	providers: [
@@ -41,6 +42,10 @@ import { CookieService } from 'ngx-cookie-service';
 			provide: HTTP_INTERCEPTORS,
 			useClass: AuthInterceptor,
 			multi: true
+		},
+		{
+			provide: ErrorHandler,
+			useClass: CustomErrorHandler
 		},
 		CookieService
 	],
