@@ -29,12 +29,22 @@ export class LoginComponent implements OnInit {
 	get password() { return this.login.get('password'); }
 
 	ngOnInit() {
+		if (this.authService.isLoggedIn()) {
+			this.router.navigateByUrl('');
+		}
 	}
 
 	loginSubmit() {
 		this.authService.attemptAuth(this.email.value, this.password.value);
-		// this.router.navigate(['<aliasInRouteConfig>']); // commented bcz we haven't given any alias to our routes as of now
-		this.router.navigateByUrl('');
+		this.authService.loginSuccess.subscribe(
+			value => {
+				if (value) {
+					// this.router.navigate(['<aliasInRouteConfig>']); // commented bcz we haven't given any alias to our routes as of now
+					this.router.navigateByUrl('');
+					// also show the error message in the template
+				}
+			}
+		);
 	}
 
 }

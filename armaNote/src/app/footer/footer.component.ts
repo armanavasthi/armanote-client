@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
 	selector: 'app-footer',
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FooterComponent implements OnInit {
 
-	constructor(private cookieService: CookieService, private httpClient: HttpClient) { }
+	constructor(private cookieService: CookieService, private httpClient: HttpClient, private authService: AuthService) { }
 
 	ngOnInit() {
 	}
@@ -32,6 +33,7 @@ export class FooterComponent implements OnInit {
 		).subscribe(
 			response => {
 				console.log("Logged out   ", response);
+				this.authService.profileImgUrl.next(null);
 			}
 		);
 	}

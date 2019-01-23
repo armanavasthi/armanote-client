@@ -1,9 +1,9 @@
 {
-    "/webservice" :{
-        "target" : "http://localhost:6060/webservice",
+    "/api" :{
+        "target" : "http://localhost:6060/api",
         "secure" : false,
         "pathRewrite": {
-            "^/webservice": ""
+            "^/api": ""
           },
           "changeOrigin": true
     }

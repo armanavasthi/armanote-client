@@ -13,11 +13,9 @@ export class UserService {
 	}
 
 	getUsers() {
-		return this.http.get(this.baseUrl + '/webservice/user/').map(
+		return this.http.get(this.baseUrl + '/api/user/').map(
 			response => response
 		);
 	}
-
-
 
 }

@@ -16,20 +16,12 @@ export class HomeComponent implements OnInit {
 	iframeUrl = '#';
 	showIFrame = false;
 
-	getAllUsers() {
-		this.userService.getUsers().subscribe(
-			response => {
-				console.log(response);
-			}
-		);
-	}
-
 	ngOnInit() {
-		this.userService.getUsers().subscribe(
-			response => {
-				console.log(response);
-			}
-		);
+		// this.userService.getUsers().subscribe(
+		// 	response => {
+		// 		console.log(response);
+		// 	}
+		// );
 	}
 
 	checkFrameUrl() {

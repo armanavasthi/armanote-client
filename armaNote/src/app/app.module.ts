@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { CookieService } from 'ngx-cookie-service';
 import { CustomErrorHandler } from './custom-error-handler';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CustomErrorHandler } from './custom-error-handler';
 		FooterComponent,
 		HomeComponent,
 		RegistrationComponent,
-		LoginComponent
+		LoginComponent,
+		ProfileComponent
 	],
 	imports: [
 		BrowserModule,
@@ -34,7 +36,8 @@ import { CustomErrorHandler } from './custom-error-handler';
 		RouterModule.forRoot([
 			{ path: '', component: HomeComponent},
 			{ path: 'registration', component: RegistrationComponent},
-			{ path: 'login', component: LoginComponent}
+			{ path: 'login', component: LoginComponent},
+			{ path: 'profile', component: ProfileComponent}
 		])
 	],
 	providers: [

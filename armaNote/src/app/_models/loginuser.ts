@@ -3,4 +3,6 @@ export class LoginUser {
 	fullName: string;
 	profileImg: string;
 	email: string;
+	userId: number;
+	username: string;
 }
