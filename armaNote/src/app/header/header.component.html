@@ -1,5 +1,22 @@
 <div>
-		<nav class="navbar">
-			<h4>Arman Angular</h4>
-		</nav>
+	<nav class="navbar">
+			<div class="col-md-2"></div>
+		<div class="col-md-8">
+			<h4>ArmaNote</h4>
+		</div>
+		<div class="col-md-2">
+			<a (click)="goToProfile()">
+				<img class="roundImg" *ngIf="profileImgUrl" [src]="profileImgUrl">
+			</a>
+			<a [routerLink]="['/']">
+				<span>Home</span>
+			</a>
+			<a *ngIf="!profileImgUrl" [routerLink]="['/login']">
+				<span>Log In</span>
+			</a>
+			<a *ngIf="!profileImgUrl" [routerLink]="['/registration']">
+				<span>Sign Up</span>
+			</a>				
+		</div>
+	</nav>
 </div>

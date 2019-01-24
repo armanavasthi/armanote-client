@@ -1,4 +1,31 @@
 .navbar{
 	background-color: orange;
+}
+.navbar h4{
 	text-align: center;
+	padding-top: 5px;
+}
+.navbar img{
+	float: right;
+}
+.roundImg {
+	border-radius: 50%;
+	width: 50px;
+}
+a {
+    padding: 0 5px;
+	color: #333;
+	float: right;
+}
+a span {
+    display: inline-block;
+    padding: 0 10px;
+	line-height: 48px;
+	font-size: 12px;
+	font-weight: bold;
+	-webkit-font-smoothing: antialiased;
+}
+a span:hover {
+	opacity: 70%;
+	background-color: #f4cf90;
 }
