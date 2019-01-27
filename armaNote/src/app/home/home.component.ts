@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
 	}
 
 	checkFrameUrl() {
-		console.log('event  ==>  ', this.inputUrl);
 		/*
 		$('#input-url').keypress(function(e){
 			//var urlRegex = "/^$/";

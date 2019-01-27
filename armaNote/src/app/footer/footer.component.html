@@ -1,10 +1,10 @@
 <div>
     <footer id="footer">
     <!-- this is footer -->
-    © 2018 arman avasthi
-        <span sec:authorize="isAuthenticated()">
-            | Logged user: <span sec:authentication="name"></span> |
-            Roles: <span sec:authentication="principal.authorities"></span> |
+    © 2019 arman avasthi
+        <span >
+            | Logged user: <span>{{ loggedUser }}</span> |
+            Roles <span *ngFor="let role of userRoles"><span>- {{ role }}</span></span> |
             <a (click)="logMeOut()" href="#">Sign Out</a>
         </span>
     </footer>

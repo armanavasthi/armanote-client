@@ -13,12 +13,9 @@ import { Router } from '@angular/router';
 export class AuthService {
 
 	baseUrl: 'http://localhost:6060/';
+	roles: {[key: number]: string} = {};
 
-	// private profileImgUrl = new Subject<any>();
-	// changeEmitted$ = this.profileImgUrl.asObservable();
-
-	profileImgUrl = new Subject<any>();
-
+	profileInfo = new Subject<LoginUser>();
 	loginSuccess = new Subject<any>();
 
 	constructor(private http: HttpClient, private router: Router) {
@@ -43,16 +40,14 @@ export class AuthService {
 		// .pipe(
 		// 	catchError(err => {
 		// 		if (err.status === 401) {
-		// 			console.log("The acc den error came::  ", err);
+		//
 		// 		} else {
-		// 			console.log("Some Error came::  ", err);
 		// 			return Observable.throw(err);
 		// 		}
 		// 	})
 		// )
 		.subscribe(
 			(response: LoginUser) => {
-				console.log("The token is:   ", response);
 				localStorage.setItem('fullname', response.fullName);
 				// for now image is hardcoded in backend as we don't have aws s3 account working
 				localStorage.setItem('imgUrl', response.profileImg);
@@ -60,12 +55,17 @@ export class AuthService {
 				localStorage.setItem('userId', response.userId.toString());
 				localStorage.setItem('username', response.username);
 				localStorage.setItem('expiry_time', (new Date().getTime() + 15 * 60 * 1000).toString());
+				let i = 0;
+				console.log("hi", response.roles);
+				response.roles.forEach(role => {
+					this.roles[i] = role;
+					i++;
+				});
+				localStorage.setItem('roles', JSON.stringify(this.roles));
 
-				// add event emitter on login and logout to add or remove image in real time
-
-				this.setSession(response);
-				this.profileImgUrl.next(response.profileImg);
+				// this.setSession(response);
 				this.loginSuccess.next(true);
+				this.profileInfo.next(response);
 			}
 		);
 			// .map(
