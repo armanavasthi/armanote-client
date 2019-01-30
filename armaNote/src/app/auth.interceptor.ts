@@ -33,7 +33,7 @@ export class AuthInterceptor implements HttpInterceptor {
 			});
 		}
 
-		console.log("my request:::::: ", cloned);
+		console.log("Request after cloning: ", cloned);
 
 		return next.handle(cloned);
 	}

@@ -31,7 +31,7 @@ export class AuthService {
 		)
 		.catch(
 			(error: HttpErrorResponse) => {
-				console.log("The error is: " , error);
+				console.error("The error is: " , error);
 				this.loginSuccess.next(false);
 				return Observable.throw(error);
 			}
@@ -56,7 +56,6 @@ export class AuthService {
 				localStorage.setItem('username', response.username);
 				localStorage.setItem('expiry_time', (new Date().getTime() + 15 * 60 * 1000).toString());
 				let i = 0;
-				console.log("hi", response.roles);
 				response.roles.forEach(role => {
 					this.roles[i] = role;
 					i++;

@@ -3,7 +3,7 @@
 			<div class="col-md-6 col-md-offset-3">
 				<form autocomplete="off" class="form-horizontal" 
 					[formGroup]="registration"
-					(ngSubmit)="registerDetails()" (keyup)="theChange()">
+					(ngSubmit)="registerDetails()">
 					<h2>Registration Form</h2>
 					
 					<div class="form-group">
@@ -54,6 +54,16 @@
 							<label *ngIf="password.touched && ( password.errors.minlength || password.errors.maxlength )">Password should be 4 to 10 characters long.</label>
 						</div>
 					</div>
+
+					<form [formGroup]="registration.controls['roles']">
+						<div *ngFor="let role of roles">
+							<span>{{ role.role }}</span>
+							<input type="checkbox" 
+							#roleVal (change)="roleChange(roleVal)" 
+							[value]="role.role"
+							[attr.data-id]="role.id">							
+						</div>
+					</form>
 
 					<div class="form-group">
 						<div class="col-sm-9">

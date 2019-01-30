@@ -9,9 +9,11 @@ import { Router } from '@angular/router';
 	templateUrl: './header.component.html',
 	styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
 	profileImgUrl;
+	isLoggedIn: boolean;
+	isAdminLoggedIn: boolean;
 
 	constructor(private authService: AuthService, private httpClient: HttpClient, private router: Router) {
 		this.profileImgUrl = localStorage.getItem('imgUrl') ? localStorage.getItem('imgUrl') : '';
@@ -19,8 +21,15 @@ export class HeaderComponent {
 		this.authService.profileInfo.subscribe(
 			info => {
 				this.profileImgUrl = info === null ? "" : info.profileImg;
+				this.isLoggedIn = info === null ? false : true ;
+				this.isAdminLoggedIn = localStorage.getItem('roles') ? localStorage.getItem('roles').includes('ADMIN') : false;
 			}
 		);
+	}
+
+	ngOnInit() {
+		this.isLoggedIn = this.authService.isLoggedIn();
+		this.isAdminLoggedIn = localStorage.getItem('roles') ? localStorage.getItem('roles').includes('ADMIN') : false;
 	}
 
 	goToProfile() {
@@ -29,7 +38,6 @@ export class HeaderComponent {
 			response => response
 		).subscribe(
 			response => {
-				// redirect to profile component
 				this.router.navigateByUrl('profile');
 			}
 		);

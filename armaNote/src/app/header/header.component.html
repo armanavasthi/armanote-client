@@ -11,10 +11,10 @@
 			<a [routerLink]="['/']">
 				<span>Home</span>
 			</a>
-			<a *ngIf="!profileImgUrl" [routerLink]="['/login']">
+			<a *ngIf="!isLoggedIn" [routerLink]="['/login']">
 				<span>Log In</span>
 			</a>
-			<a *ngIf="!profileImgUrl" [routerLink]="['/registration']">
+			<a *ngIf="!isLoggedIn || isAdminLoggedIn" [routerLink]="['/registration']">
 				<span>Sign Up</span>
 			</a>				
 		</div>
