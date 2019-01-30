@@ -16,13 +16,7 @@ export class HomeComponent implements OnInit {
 	iframeUrl = '#';
 	showIFrame = false;
 
-	ngOnInit() {
-		// this.userService.getUsers().subscribe(
-		// 	response => {
-		// 		console.log(response);
-		// 	}
-		// );
-	}
+	ngOnInit() {}
 
 	checkFrameUrl() {
 		/*
@@ -38,7 +32,5 @@ export class HomeComponent implements OnInit {
 		*/
 		this.iframeUrl = this.inputUrl;
 		this.showIFrame = true;
-
 	}
-
 }

@@ -3,7 +3,7 @@
 			<div class="col-md-6 col-md-offset-3">
 				<form autocomplete="off" class="form-horizontal" 
 					[formGroup]="registration"
-					(ngSubmit)="registerDetails()">
+					(ngSubmit)="registerDetails()" (keyup)="formChange()">
 					<h2>Registration Form</h2>
 					
 					<div class="form-group">
@@ -67,15 +67,17 @@
 
 					<div class="form-group">
 						<div class="col-sm-9">
-							<button type="submit" class="btn btn-primary btn-block">Register User</button>
+							<!-- disable feature not working, better is to create your ow directive, for more info https://github.com/angular/angular/issues/11271 -->
+							<button type="submit" [attr.disabled]="!registration.valid ? '' : null" class="btn btn-primary btn-block">Register User</button>
 						</div>
-					</div>
-					
-					<!-- <span th:utext="${successMessage}"></span> -->
-					
+					</div>				
 				</form>
 				<div class="col-sm-9 goToButton">
 					<button class="btn btn-md btn-warning btn-block" [routerLink]="['/login']" type="Submit">Go To Login Page</button>
+				</div>
+
+				<div class="col-sm-9 successMessage">
+					<span>{{ saveMessage }}</span>
 				</div>
 			</div>
 		</div>

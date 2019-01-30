@@ -66,7 +66,6 @@ export class FooterComponent implements OnInit {
 			response => response
 		).subscribe(
 			response => {
-				console.log("Logged out   ", response);
 				this.authService.profileInfo.next(null);
 				this.loggedUser = "";
 				this.userRoles = null;

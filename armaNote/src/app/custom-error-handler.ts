@@ -17,7 +17,7 @@ export class CustomErrorHandler implements ErrorHandler {
 	handleError(error: any) { // when I use type as Error, it says, error doesn't have type 'status'. (It's an Compile time issue so no problem at run time)
 	// the reason may be that at compile time, error is empty as it didn't get any response.
 		if (error.status === 401) {
-			console.log("clearing local storage in CEH");
+			console.error("clearing local storage in CEH");
 			localStorage.clear();
 
 			// Actually I directly wanted to emit the profile info from here but couldn't do bcz of : https://stackoverflow.com/a/35758310/7456022 (the answer is not correct:Check my comment in this answer)
