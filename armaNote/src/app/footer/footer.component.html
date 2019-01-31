@@ -2,10 +2,10 @@
     <footer id="footer">
     <!-- this is footer -->
     © 2019 arman avasthi
-        <span >
-            | Logged user: <span>{{ loggedUser }}</span> |
-            Roles <span *ngFor="let role of userRoles"><span>- {{ role }}</span></span> |
-            <a (click)="logMeOut()" href="#">Sign Out</a>
+        <span [hidden]="!loggedUser">
+            | Logged user: <span>{{ loggedUser }}</span>
+            | Roles <span *ngFor="let role of userRoles"><span> - {{ role }}</span></span> 
+            | <a (click)="logMeOut()" href="#">Sign Out</a>
         </span>
     </footer>
 </div>

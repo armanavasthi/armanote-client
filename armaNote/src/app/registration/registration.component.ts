@@ -20,7 +20,7 @@ export class RegistrationComponent implements OnInit {
 	selectedRoles: Role[];
 	user: User;
 	saveMessage: String;
-	disableButton = true; // do it using your own directive
+	disableButton = true;
 
 	constructor(private authService: AuthService, private router: Router,
 		private http: HttpClient, private userService: UserService,
@@ -62,12 +62,11 @@ export class RegistrationComponent implements OnInit {
 	formChange() {
 		if (this.registration.status === "VALID") {
 			this.disableButton = false;
-			console.log(this.disableButton);
 		}
 	}
 
 	registerDetails() {
-		this.disableButton = true; // do it using your own directive
+		this.disableButton = true;
 		// Current approach of adding Role is not good, bcz we are not completely making use of reactive forms.
 		// May be changed in future when got better knowledge about forms.
 		this.selectedRoles.forEach(role => {
@@ -85,7 +84,7 @@ export class RegistrationComponent implements OnInit {
 				response => {
 					this.saveMessage = "User is created successfully!!!";
 					setTimeout(() => {
-						this.disableButton = false; // do it using your own directive
+						this.disableButton = false;
 						this.saveMessage = "";
 						this.router.navigateByUrl("login");
 					}, 2000);
