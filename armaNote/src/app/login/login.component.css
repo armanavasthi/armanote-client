@@ -1,0 +1,17 @@
+.popMessage {
+    text-align: center;
+    margin-top: 20px;
+}
+.success {
+    color: green;
+}
+.failure {
+    color: red;
+}
+form div div, .goToButton {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.form-div {
+    margin-top: 40px;
+}

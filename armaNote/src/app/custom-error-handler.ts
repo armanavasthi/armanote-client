@@ -2,6 +2,7 @@ import { Injectable, ErrorHandler } from "@angular/core";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Subject } from "rxjs/Subject";
 // import { AuthService } from "./_services/auth.service";
+import 'rxjs/add/observable/throw'; // previously code was working without this but suddenly starte giving error in console that observable.throw is not a function so I imported it.
 
 @Injectable()
 export class CustomErrorHandler implements ErrorHandler {
@@ -16,7 +17,7 @@ export class CustomErrorHandler implements ErrorHandler {
 	// handleError(error: Error | HttpErrorResponse) {
 	handleError(error: any) { // when I use type as Error, it says, error doesn't have type 'status'. (It's an Compile time issue so no problem at run time)
 	// the reason may be that at compile time, error is empty as it didn't get any response.
-		if (error.status === 401) {
+	if (error.status === 401) {
 			console.error("clearing local storage in CEH");
 			localStorage.clear();
 

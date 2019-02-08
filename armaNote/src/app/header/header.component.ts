@@ -33,13 +33,6 @@ export class HeaderComponent implements OnInit {
 	}
 
 	goToProfile() {
-		const url = GlobalConstants.API_ENDPOINT + "user/" + localStorage.getItem('userId');
-		this.httpClient.get(url).map(
-			response => response
-		).subscribe(
-			response => {
-				this.router.navigateByUrl('profile');
-			}
-		);
+		this.router.navigateByUrl('profile');
 	}
 }

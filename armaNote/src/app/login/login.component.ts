@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ErrorHandler } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
 import { PlatformLocation } from '@angular/common';
@@ -14,10 +14,21 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-	constructor(location: Location, platformLocation: PlatformLocation, private authService: AuthService, private router: Router) {
+	popMessage: String;
+	loginError: boolean = false;
+
+	constructor(/* location: Location, platformLocation: PlatformLocation, */
+				private authService: AuthService, private router: Router,
+				private errorHandler: ErrorHandler) {
 		// console.log((platformLocation as any).location);
 		// console.log((platformLocation as any).location.href);
 		// console.log((platformLocation as any).location.origin);
+		this.errorHandler['accessDenied'].subscribe(
+			value => {
+				this.popMessage = "Username or Password is not correct";
+				this.loginError = true;
+			}
+		);
 	}
 	login = new FormGroup({
 		// tslint:disable-next-line:quotemark
@@ -45,6 +56,11 @@ export class LoginComponent implements OnInit {
 				}
 			}
 		);
+	}
+
+	inputFocus() {
+		this.popMessage = "";
+		this.loginError = false;
 	}
 
 }

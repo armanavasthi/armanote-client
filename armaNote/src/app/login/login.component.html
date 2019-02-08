@@ -1,24 +1,38 @@
-<div class="container">
-		<div>
+<div>
+	<div class="row">
+		<div class="form-div justify-content-center align-items-center container col-lg-4 col-md-7 col-sm-9 col-xs-11">
 			<form class="form-signin"
 				(ngSubmit)=loginSubmit()
-				[formGroup]="login">
-				<h3 class="form-signin-heading"></h3>
-				<br/>
-				 
-				<input type="text" name="email" class="form-control" formControlName="email"/> <br/> 
-				<input type="password" name="password" class="form-control" formControlName="password"/> <br /> 
-					
-				<!-- <div align="center">
-					<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
-				</div> -->
-				<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+				[formGroup]="login">				
+				<h2>Log In</h2>				
+				<div class="form-group">
+					<div>
+						<input type="text" name="email" class="form-control" formControlName="email"
+							(focus)="inputFocus()"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<input type="password" name="password" class="form-control" formControlName="password"
+						(focus)="inputFocus()"/> 
+					</div>
+				</div>
+				<div class="form-group">
+					<div>
+						<button class="btn btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+					</div>
+				</div>
 			</form>
-		</div>
-		<br>
-		<div>
-			<form>
-				<button class="btn btn-lg btn-warning btn-block" [routerLink]="['/registration']" type="Submit">Go To Registration Page</button>
-			</form>
+			<div class="goToButton">
+				<button class="btn btn-md btn-warning btn-block" [routerLink]="['/registration']" type="Submit">Go To Registration Page</button>
+			</div>
+
+			<div class="popMessage" [ngClass]="{
+				'failure': loginError,
+				'success': !loginError
+			}">
+				<span>{{ popMessage }}</span>
+			</div>
 		</div>
 	</div>
+</div>

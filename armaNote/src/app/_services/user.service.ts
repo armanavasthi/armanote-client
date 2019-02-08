@@ -31,7 +31,7 @@ export class UserService {
 		return this.http.post(url, JSON.stringify(user), this.headers)
 			.map( response => response )
 			.catch((error: HttpErrorResponse) => {
-				console.error(error);
+				console.error("Error in user service post response::" + error);
 				return Observable.throw(error);
 			});
 	}

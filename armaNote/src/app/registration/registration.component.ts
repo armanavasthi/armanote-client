@@ -21,6 +21,7 @@ export class RegistrationComponent implements OnInit {
 	user: User;
 	saveMessage: String;
 	disableButton = true;
+	registrationError = false;
 
 	constructor(private authService: AuthService, private router: Router,
 		private http: HttpClient, private userService: UserService,
@@ -82,6 +83,7 @@ export class RegistrationComponent implements OnInit {
 		this.userService.postUser(this.user)
 			.subscribe(
 				response => {
+					this.registrationError = false; // in case of error, make it true (same as login component)
 					this.saveMessage = "User is created successfully!!!";
 					setTimeout(() => {
 						this.disableButton = false;

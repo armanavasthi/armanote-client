@@ -1,12 +1,13 @@
 .form-ele{
 	overflow:hidden;
-	display:inline;
+	display:flex;
+	align-items: center;
 }
-.form-ele label, .form-ele input, .form-ele textarea {
+/* .form-ele label, .form-ele input, .form-ele textarea {
     display:table-caption;
     width:70%;
     margin-left:3%;
-}
+} */
 .form-ele label{
 	margin-top: 20px; /* rather try to implement verticle align center to the labels */
 }
@@ -20,12 +21,12 @@
 .noLeftPadding{
 	padding-left:0!important;
 }
-.urlDiv{
+/* .urlDiv{
 	padding-left:25px;
-}
+} */
 .urlLabelDiv{
 	padding-right:0px;
 }
-.urlLabelDiv label{
+/* .urlLabelDiv label{
 	margin-top: 10px;
-}
+} */

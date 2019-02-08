@@ -1,22 +1,23 @@
 <div>
 	<nav class="navbar">
-			<div class="col-md-2 col-sm-2"></div>
-		<div class="col-md-7 col-sm-6 col-xs-2">
-			<h4>ArmaNote</h4>
-		</div>
-		<div class="col-md-3 col-sm-4 col-xs-6 col-sm-offset-0 col-md-offset-0 col-xs-offset-4">
-			<a (click)="goToProfile()">
-				<img class="roundImg" *ngIf="profileImgUrl" [src]="profileImgUrl">
-			</a>
-			<a [routerLink]="['/']">
-				<span>Home</span>
-			</a>
-			<a *ngIf="!isLoggedIn" [routerLink]="['/login']">
-				<span>Log In</span>
-			</a>
-			<a *ngIf="!isLoggedIn || isAdminLoggedIn" [routerLink]="['/registration']">
-				<span>Sign Up</span>
-			</a>				
+		<div class="row">
+			<div>
+				<h4>ArmaNote</h4>
+			</div>
+			<div class="rightDiv">
+				<a (click)="goToProfile()">
+					<img class="roundImg" *ngIf="profileImgUrl" [src]="profileImgUrl">
+				</a>
+				<a [routerLink]="['/']">
+					<span>Home</span>
+				</a>
+				<a *ngIf="!isLoggedIn" [routerLink]="['/login']">
+					<span>Log In</span>
+				</a>
+				<a *ngIf="!isLoggedIn || isAdminLoggedIn" [routerLink]="['/registration']">
+					<span>Sign Up</span>
+				</a>				
+			</div>
 		</div>
 	</nav>
 </div>

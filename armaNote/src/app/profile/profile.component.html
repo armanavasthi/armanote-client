@@ -1,3 +1,43 @@
-<p>
-  hello profile
-</p>
+<div class="profileBody">
+  <div class="card middle">
+    <div class="top-section">
+      <img src="assets/images/profilearman.jpg" alt="" srcset="">
+      <div class="menuicon">
+        <span class="s1"></span>
+        <span class="s2"></span>
+      </div>
+      <div class="name">
+        {{ profileInfo.firstName }} <br>
+        <span>{{ profileInfo.lastName }}</span>
+      </div>
+    </div>
+    <div class="info-section">
+      <h2>
+        Email
+        <div class="border"></div>
+      </h2>
+      <p>{{ profileInfo.email }}</p>
+      <h2>
+        Username
+        <div class="border"></div>
+      </h2>
+      <p>{{ profileInfo.username }}</p>
+      <h2>
+        All Roles
+        <div class="border"></div>
+      </h2>
+      <p><span *ngFor="let role of profileInfo.roles">{{ role.role }} </span></p>
+      <h2>
+          Contact
+          <div class="border"></div>
+      </h2>
+      <div class="s-m">
+        <a href="" class="fab fa-facebook-f"></a>
+        <a href="" class="fab fa-twitter"></a>
+        <a href="" class="fab fa-instagram"></a>
+        <a href="" class="fab fa-youtube"></a>
+        <a href="" class="fab fa-whatsapp"></a>
+      </div>
+    </div>
+  </div>
+</div>
