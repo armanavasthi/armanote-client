@@ -55,6 +55,7 @@ export class AuthService {
 				localStorage.setItem('userId', response.userId.toString());
 				localStorage.setItem('username', response.username);
 				localStorage.setItem('expiry_time', (new Date().getTime() + 15 * 60 * 1000).toString());
+				localStorage.setItem('current_time', (new Date().getTime()).toString());
 				let i = 0;
 				response.roles.forEach(role => {
 					this.roles[i] = role;

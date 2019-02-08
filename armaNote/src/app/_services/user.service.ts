@@ -21,6 +21,7 @@ export class UserService {
 	}
 
 	getUsers() {
+		// !!! USE IT SAFELY !!! it gets information of all the users so make sure in backend that the logged in user is admin.
 		return this.http.get(GlobalConstants.API_ENDPOINT + 'user/').map(
 			response => response
 		);
@@ -34,6 +35,12 @@ export class UserService {
 				console.error("Error in user service post response::" + error);
 				return Observable.throw(error);
 			});
+	}
+
+	isLoggedIn() {
+		const url = GlobalConstants.API_ENDPOINT + "user/logincheck";
+		return this.http.get(url)
+			.map(response => response)
 	}
 
 }

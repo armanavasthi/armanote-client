@@ -9,12 +9,20 @@ import { AuthService } from './_services/auth.service';
 	providers: [UserService, AuthService]
 })
 export class AppComponent implements OnInit {
-	title = 'app';
 
-	constructor() {
-		if (parseInt(localStorage.getItem('current_time')) + 60 * 60 * 1000 < new Date().getTime()) {
-			// make a blank call to backend rather than clearing localstorage
-			localStorage.clear();
+	constructor(private userService: UserService) {
+		if (localStorage.getItem('current_time') === null || localStorage.getItem('current_time') === undefined ||
+					parseInt(localStorage.getItem('current_time')) + 60 * 60 * 1000 < new Date().getTime()) {
+			if (localStorage.getItem("imgUrl")) {
+				this.userService.isLoggedIn()
+				.subscribe(
+					response => {
+						if (!response) {
+							localStorage.clear(); // not even required to subscribe or clear localstorage bcz 401 will come which is handled globally
+						}
+					}
+				);
+			}
 		} else if (localStorage.getItem("imgUrl")) {
 			localStorage.setItem('current_time', (new Date().getTime()).toString());
 		}

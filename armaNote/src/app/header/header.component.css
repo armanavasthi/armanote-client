@@ -1,13 +1,9 @@
 .navbar{
 	background-color: orange;
 }
-.navbar h4{
-	text-align: center;
-	padding-top: 5px;
+.textCenter {
+	margin: 0 auto;
 }
-/* .navbar img{
-	float: right;
-} */
 .roundImg {
 	border-radius: 50%;
 	width: 50px;
@@ -32,4 +28,5 @@ a span {
 a span:hover {
 	opacity: 70%;
 	background-color: #f4cf90;
+	border-radius: 10px;
 }

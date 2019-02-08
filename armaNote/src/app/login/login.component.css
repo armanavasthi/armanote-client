@@ -8,10 +8,6 @@
 .failure {
     color: red;
 }
-form div div, .goToButton {
-    padding-left: 0px;
-    padding-right: 0px;
-}
 .form-div {
     margin-top: 40px;
 }
